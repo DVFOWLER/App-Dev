@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Manage Orders - Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="script.js" defer></script>
+</head>
+<body class="admin-page">
+<header class="main-header">
+  <div class="logo">🎣 <span>ADMIN PANEL</span></div>
+  <nav class="nav-links">
+    <a href="admin-dashboard.html">Dashboard</a>
+    <a href="admin-products.html">Products</a>
+    <a href="admin-users.html">Users</a>
+    <a href="admin-orders.html" aria-current="page">Orders</a>
+  </nav>
+  <div class="auth-right">
+    <span class="user-info" id="user-greeting" style="display:none;"><span id="username-display"></span></span>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 style="color:#333; margin-bottom:30px;">Manage Orders</h1>
+
+  <div style="background:white; padding:30px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.1); margin-bottom:40px;">
+    <h2 style="color:#333; margin-bottom:20px;">All Orders</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th><th>Customer</th><th>Amount</th><th>Date</th><th>Status</th><th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="orders-tbody"></tbody>
+    </table>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>🎣 Admin Panel</h3>
+      <p>Manage your TackleNearMe shop</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="admin-dashboard.html">Dashboard</a>
+      <a href="admin-products.html">Products</a>
+      <a href="admin-users.html">Users</a>
+      <a href="admin-orders.html">Orders</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Twitter</a>
+    </div>
+  </div>
+  <p class="copyright">© 2026 TackleNearMe - Admin Dashboard</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TackleNearMe - Our Story</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="history-page">
+<header class="main-header">
+  <div class="logo">🎣 <span>TackleNearMe</span></div>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
+
+    <div class="dropdown" id="shopDropdown">
+      <a href="shop.html" id="shopDropdownToggle" class="dropdown-toggle" aria-expanded="false" aria-haspopup="true">Shop ▾</a>
+      <div class="dropdown-menu" id="shopDropdownMenu" role="menu" aria-label="Shop categories">
+        <div class="dropdown-col">
+          <h4>Rods</h4>
+          <a href="shop.html?cat=rods&q=spinning">Spinning Rods</a>
+          <a href="shop.html?cat=rods&q=baitcaster">Baitcasting Rods</a>
+          <a href="shop.html?cat=rods&q=ultralight">Ultralight</a>
+        </div>
+        <div class="dropdown-col">
+          <h4>Reels</h4>
+          <a href="shop.html?cat=reels&q=spinning">Spinning</a>
+          <a href="shop.html?cat=reels&q=baitcaster">Baitcasting</a>
+          <a href="shop.html?cat=reels&q=saltwater">Saltwater</a>
+        </div>
+        <div class="dropdown-col">
+          <h4>Lures &amp; Tackle</h4>
+          <a href="shop.html?cat=lures&q=soft">Soft Baits</a>
+          <a href="shop.html?cat=lures&q=hard">Hard Baits</a>
+          <a href="shop.html?cat=tackle&q=terminal">Terminal Tackle</a>
+        </div>
+        <div class="dropdown-col">
+          <h4>Lines &amp; Hooks</h4>
+          <a href="shop.html?cat=line&q=fluorocarbon">Fluorocarbon</a>
+          <a href="shop.html?cat=line&q=braid">Braid</a>
+          <a href="shop.html?cat=hooks&q=saltwater">Saltwater Hooks</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="locations.html">Locations</a>
+    <a href="history.html" aria-current="page">History</a>
+    <a href="updates.html">Updates</a>
+    <a href="about.html">About</a>
+    <a id="nav-cart" class="cart-link" href="delivery.html">Cart <span id="cart-badge" class="cart-badge" hidden>0</span></a>
+  </nav>
+  <div class="auth-right" id="auth-links">
+    <span class="user-info" id="user-greeting" style="display:none;">Welcome, <span id="username-display"></span>!</span>
+    <a data-login href="login-user.html" class="btn-login">User Login</a>
+    <a data-login href="login-admin.html" class="btn-login">Admin Login</a>
+    <button class="logout-btn" onclick="logout()">Logout</button>
+  </div>
+</header>
+
+<div class="container">
+  <div class="products">
+    <div class="product-container">
+      <div class="card">
+        <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/615359343_1183922140537932_3099401591448812127_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeFBms-y1mYy_5gzOiChI0Swb4Ag5I5fVwBvgCDkjl9XAGHE4mxS0R6yGaH6SKBwAHeFVWqiEK8HBwcZSJ0Xi_li&_nc_ohc=1rdkMHieF4MQ7kNvwEvuVaf&_nc_oc=AdkHST9VcuXjI0eMIDbC4gIqRfuQBgC8MFQ_8n63i1VhHoxDwXxMbmJqY84KjO1p2i0&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=DyNT8LNQh7nbBOysH9Ke5Q&_nc_ss=8&oh=00_AfwRGzTs2Y7DI9gyHHgUCRGG8TbbA4bB-a9uxB4aMIhkxg&oe=69AED4C4"
+             alt="Our Journey">
+        <h3>Our Journey</h3>
+        <p>Started in 2024, TackleNearMe began supplying reliable fishing gear to local anglers, growing into a nationwide online-first shop.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>🎣 TackleNearMe</h3>
+      <p>Fishing accessories for every angler</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="locations.html">Locations</a>
+      <a href="history.html">History</a>
+    </div>
+    <div>
+      <h4>Information</h4>
+      <a href="about.html">About</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Terms</a>
+    </div>
+    <div>
+      <h4>Online Order</h4>
+      <a href="delivery.html">Order Now</a>
+      <a href="delivery.html">Track Order</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Twitter</a>
+    </div>
+  </div>
+  <p class="copyright">© 2026 TackleNearMe</p>
+</footer>
+</body>
+</html>
