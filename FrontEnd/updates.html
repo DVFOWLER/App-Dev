@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TackleNearMe - Updates</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+<header class="main-header">
+  <div class="logo">🎣 <span>TackleNearMe</span></div>
+  <nav class="nav-links" aria-label="Primary">
+    <a href="index.html">Home</a>
+
+    <div class="dropdown" id="shopDropdown">
+      <a href="shop.html" id="shopDropdownToggle" class="dropdown-toggle">Shop ▾</a>
+      <div class="dropdown-menu" id="shopDropdownMenu" role="menu" aria-label="Shop categories">
+        <div class="dropdown-col">
+          <h4>Rods</h4>
+          <a href="shop.html?cat=rods&q=spinning">Spinning Rods</a>
+          <a href="shop.html?cat=rods&q=baitcaster">Baitcasting Rods</a>
+          <a href="shop.html?cat=rods&q=ultralight">Ultralight</a>
+        </div>
+        <div class="dropdown-col">
+          <h4>Reels</h4>
+          <a href="shop.html?cat=reels&q=spinning">Spinning</a>
+          <a href="shop.html?cat=reels&q=baitcaster">Baitcasting</a>
+          <a href="shop.html?cat=reels&q=saltwater">Saltwater</a>
+        </div>
+        <div class="dropdown-col">
+          <h4>Lures &amp; Tackle</h4>
+          <a href="shop.html?cat=lures&q=soft">Soft Baits</a>
+          <a href="shop.html?cat=lures&q=hard">Hard Baits</a>
+          <a href="shop.html?cat=tackle&q=terminal">Terminal Tackle</a>
+        </div>
+        <div class="dropdown-col">
+          <h4>Lines &amp; Hooks</h4>
+          <a href="shop.html?cat=line&q=fluorocarbon">Fluorocarbon</a>
+          <a href="shop.html?cat=line&q=braid">Braid</a>
+          <a href="shop.html?cat=hooks&q=saltwater">Saltwater Hooks</a>
+        </div>
+      </div>
+    </div>
+
+    <a href="locations.html">Locations</a>
+    <a href="history.html">History</a>
+    <a href="updates.html">Updates</a>
+    <a href="about.html">About</a>
+    <a href="delivery.html" id="nav-cart" class="cart-link">Cart <span id="cart-badge" class="cart-badge" hidden>0</span></a>
+  </nav>
+   <div class="auth-right" id="auth-links" style="display:flex; align-items:center; gap:10px;">
+      <span class="user-info" id="user-greeting" style="display:none;">Welcome, <span id="username-display"></span>!</span>
+      <a data-login class="btn btn-outline" href="login-user.html" style="background:var(--primary2)">User Login</a>
+      <a href="login-seller.html" class="btn-login" style="background:var(--primary2);" data-login>Seller Login</a>
+      <a data-login class="btn btn-outline" href="login-admin.html" style="background:var(--primary2)">Admin Login</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+</header>
+
+<div class="container">
+  <h2>Updates &amp; News</h2>
+
+  <section style="margin:20px 0;">
+    <h3>Latest Gear</h3>
+    <div class="product-container">
+      <div class="card">
+        <img src="https://static-data2.manualslib.com/product-images/f0c/1464037/typhoon-4000-pressure-washer.jpg" alt="Typhoon 4000">
+        <h3>Typhoon 4000 — New!</h3>
+        <p>₱2,450</p>
+        <button class="order btn" onclick="alert('Demo only: add from Shop for consistency.')">Order</button>
+      </div>
+      <div class="card">
+        <img src="https://assets.basspro.com/image/upload/b_rgb:FFFFFF,c_pad,dpr_2.0,f_auto,h_250,q_auto,w_400/c_pad,h_250,w_400/v1/ProductImages/100/master1_101277675_main?pgw=1" alt="Graphite Pro Rod">
+        <h3>Graphite Pro Rod — Promo</h3>
+        <p>₱1,690</p>
+        <button class="order btn" onclick="alert('Demo only: add from Shop for consistency.')">Order</button>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:20px 0;">
+    <h3>Merchandise</h3>
+    <div class="product-container">
+      <div class="card">
+        <img src="https://i5.walmartimages.com/seo/Polarized-Fishing-Glasses-Hat-Visors-Sport-Clips-Cap-Clip-on-Sunglasses-For-Men-Fishing-Biking-Hiking-Golf-Tennis-Eyewear_e5fb0e4c-5701-48aa-964c-152a99e15788.302f704f3a923adc426343d0bb81992a.jpeg?odnHeight=768&odnWidth=768&odnBg=FFFFFF" alt="Polarized Cap">
+        <h3>Polarized Cap</h3>
+        <p>₱360</p>
+        <button class="order btn" onclick="alert('Demo only: add from Shop for consistency.')">Order</button>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:20px 0;">
+    <h3>Sales &amp; Promos</h3>
+    <div class="product-container">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1558980664-10b0b4aa3d5c?q=80&w=1470&auto=format&fit=crop" alt="Lure combo">
+        <h3>Lure Combo</h3>
+        <p>Buy 2 lure kits, get 1 free (selected colors)</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin:20px 0;">
+    <h3>New Branches</h3>
+    <div class="product-container">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1600891964599-f61ba0e24092?q=80&w=1470&auto=format&fit=crop" alt="Iloilo branch">
+        <h3>New Branch: Iloilo</h3>
+        <p>Opening soon — grand opening promos available</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div>
+      <h3>🎣 TackleNearMe</h3>
+      <p>Fishing accessories for every angler</p>
+    </div>
+    <div>
+      <h4>Quick Links</h4>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="locations.html">Locations</a>
+      <a href="history.html">History</a>
+    </div>
+    <div>
+      <h4>Information</h4>
+      <a href="about.html">About</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Privacy Policy</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Terms</a>
+    </div>
+    <div>
+      <h4>Online Order</h4>
+      <a href="delivery.html">Order Now</a>
+      <a href="delivery.html">Track Order</a>
+    </div>
+    <div>
+      <h4>Follow Us</h4>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Twitter</a>
+    </div>
+  </div>
+  <p class="copyright">© 2026 TackleNearMe</p>
+</footer>
+</body>
+</html>

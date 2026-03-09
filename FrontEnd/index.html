@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TackleNearMe - Fishing Accessories Online</title>
+  <meta name="description" content="TackleNearMe: Shop rods, reels, lures, lines, and tackle. Reliable fishing accessories delivered fast across the Philippines.">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="main-header">
+    <div class="logo">🎣 <span>TackleNearMe</span></div>
+
+    <nav class="nav-links" aria-label="Primary">
+      <a href="index.html">Home</a>
+
+      <div class="dropdown" id="shopDropdown">
+        <a href="shop.html" id="shopDropdownToggle" class="dropdown-toggle">Shop ▾</a>
+        <div class="dropdown-menu" id="shopDropdownMenu" role="menu" aria-label="Shop categories">
+          <div class="dropdown-col">
+            <h4>All</h4>
+            <a href="shop.html">All Products</a>
+            <a href="shop.html?cat=rods">All Rods</a>
+            <a href="shop.html?cat=reels">All Reels</a>
+          </div>
+          <div class="dropdown-col">
+            <h4>Rods</h4>
+            <a href="shop.html?cat=rods&q=spinning">Spinning Rods</a>
+            <a href="shop.html?cat=rods&q=baitcaster">Baitcasting Rods</a>
+            <a href="shop.html?cat=rods&q=ultralight">Ultralight</a>
+          </div>
+          <div class="dropdown-col">
+            <h4>Reels</h4>
+            <a href="shop.html?cat=reels&q=spinning">Spinning</a>
+            <a href="shop.html?cat=reels&q=baitcaster">Baitcasting</a>
+            <a href="shop.html?cat=reels&q=saltwater">Saltwater</a>
+          </div>
+          <div class="dropdown-col">
+            <h4>Lures &amp; Tackle</h4>
+            <a href="shop.html?cat=lures&q=soft">Soft Baits</a>
+            <a href="shop.html?cat=lures&q=hard">Hard Baits</a>
+            <a href="shop.html?cat=tackle&q=terminal">Terminal Tackle</a>
+          </div>
+          <div class="dropdown-col">
+            <h4>Lines &amp; Hooks</h4>
+            <a href="shop.html?cat=line&q=fluorocarbon">Fluorocarbon</a>
+            <a href="shop.html?cat=line&q=braid">Braid</a>
+            <a href="shop.html?cat=hooks&q=saltwater">Saltwater Hooks</a>
+          </div>
+        </div>
+      </div>
+
+      <a href="locations.html">Locations</a>
+      <a href="history.html">History</a>
+      <a href="updates.html">Updates</a>
+      <a href="about.html">About</a>
+      <a href="delivery.html" id="nav-cart" class="cart-link">Cart <span id="cart-badge" class="cart-badge" hidden>0</span></a>
+    </nav>
+
+   <div class="auth-right" id="auth-links" style="display:flex; align-items:center; gap:10px;">
+      <span class="user-info" id="user-greeting" style="display:none;">Welcome, <span id="username-display"></span>!</span>
+      <a data-login class="btn btn-outline" href="login-user.html" style="background:var(--primary2)">User Login</a>
+      <a href="login-seller.html" class="btn-login" style="background:var(--primary2);" data-login>Seller Login</a>
+      <a data-login class="btn btn-outline" href="login-admin.html" style="background:var(--primary2)">Admin Login</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Reliable Fishing Gear — Delivered</h1>
+        <p>Rods, reels, lures, lines, and more. Curated by anglers, for anglers.</p>
+        <a class="btn" href="shop.html">Shop Now</a>
+      </div>
+      <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/645443790_1225057743091038_4757944171242142242_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeGFAgl58Bj0B6y2HNsqa0FCE5DnCaobGpgTkOcJqhsamCSaCWWTfEekUMnZL4MRm5clfDaY203e7K3wZicjNF3e&_nc_ohc=GbTnwgSpbuAQ7kNvwEXqVrm&_nc_oc=AdllQzTYocNcSwwekejcj6vMVFBM8GkRHGc5SIO_qhoLn1_RUY0rw9wb_JKqzEgiLdA&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=_azr377I8DlaA1cfwIAySw&_nc_ss=8&oh=00_Afzauf7NoWBRMy7-f5fsUzlxs6ziWZAHH9awsZvnjs8k4w&oe=69AED47D" alt="Hero fishing image">
+    </section>
+
+    <!-- FEATURED GEAR (slider) -->
+    <section class="products">
+      <h2>Featured Gear</h2>
+      <div class="ice-carousel" id="indexCarousel">
+        <button class="btn" id="prevIce" type="button" aria-label="Previous products">‹</button>
+        <div class="product-container" id="featuredProducts"></div>
+        <button class="btn" id="nextIce" type="button" aria-label="Next products">›</button>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section class="feature">
+      <div class="text">
+        <h2>Why Choose TackleNearMe?</h2>
+        <ul>
+          <li>✔ Quality-checked gear</li>
+          <li>✔ Curated top picks for PH waters</li>
+          <li>✔ Fast local shipping</li>
+        </ul>
+      </div>
+      <img src="OXMDzfvnubSOkCzn_bqSgO8osoxfDKi9EFlXIPltv_lV&_nc_ohc=2xwUB" alt="Quality-checked gear">
+    </section>
+
+    <section class="feature green">
+      <div class="text">
+        <h2>Find a Branch</h2>
+        <p>Pick up same-day or check on-hand stocks.</p>
+        <a class="btn" href="locations.html">Find Store</a>
+      </div>
+      <img src="https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/617272083_1189610139969132_2867571114134875379_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=102&ccb=1-7&_nc_sid=7b2446&_nc_eui2=AeH9fS7Eb2skzLbvGgS7PEgEKhDKhO_IQc8qEMqE78hBzyhxJuVYUqaNXhbgnwIZPpuYQrAY2MJz9PiAUBdEvjju&_nc_ohc=nPiWTLn0GW0Q7kNvwFo_6Yt&_nc_oc=AdmL73P4oI3w3aDXMkyH0Eiz-OsB8afhHsRTi2dwfwIVa-aMRgiWeGvPGTu4S3cAaLk&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=l32K5ZeXWBs_IjHzrgIUqg&_nc_ss=8&oh=00_Afxxi14_G-HwtNnON6i1v4DPaHecr-o8uLCIOUguD6KgIw&oe=69AEDB1A" alt="Find a branch">
+    </section>
+
+    <!-- GALLERY -->
+    <section class="gallery">
+      <h2>Latest Arrivals</h2>
+      <div class="gallery-container">
+        <img src="https://www.wired2fish.com/wp-content/uploads/2021/09/78bc58d5-51d8-4952-98dd-cecdb831f1fd.jpg" alt="Hooks">
+        <img src="https://i.redd.it/j06u8mxokkhb1.jpg" alt="Topwater popper">
+        <img src="https://images-cdn.ubuy.co.in/67f4bd9314764d51790126d9-wdg-fishing-lures-tackle-box-kit-85pcs.jpg" alt="Tackle box kit">
+        <img src="https://images.unsplash.com/photo-1465146633011-14f8e0781093?q=80&w=1470&auto=format&fit=crop" alt="Fishing pliers">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div>
+        <h3>🎣 TackleNearMe</h3>
+        <p>Fishing accessories for every angler</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <a href="index.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="locations.html">Locations</a>
+        <a href="history.html">History</a>
+      </div>
+      <div>
+        <h4>Information</h4>
+        <a href="about.html">About</a>
+        <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Privacy Policy</a>
+        <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Terms</a>
+      </div>
+      <div>
+        <h4>Online Order</h4>
+        <a href="delivery.html">Order Now</a>
+        <a href="delivery.html">Track Order</a>
+      </div>
+      <div>
+        <h4>Follow Us</h4>
+        <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/Hookpointtackleshop" target="_blank" rel="noopener">Twitter</a>
+      </div>
+    </div>
+    <p class="copyright">© 2026 TackleNearMe</p>
+  </footer>
+</body>
+</html>
