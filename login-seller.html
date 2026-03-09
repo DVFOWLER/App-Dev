@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seller Login — TackleNearMe</title>
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <!-- Shared Header -->
+  <header class="site-header">
+    <div class="container topbar">
+      <a class="brand" href="index.html"><span class="logo">TN</span><span>TackleNearMe</span></a>
+
+      <nav class="primary" aria-label="Primary">
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li class="dropdown">
+            <a href="shop.html">Shop ▾</a>
+            <div class="submenu">
+              <a href="shop.html#rods">Rods <span>→</span></a>
+              <a href="shop.html#reels">Reels <span>→</span></a>
+              <a href="shop.html#lures">Lures &amp; Baits <span>→</span></a>
+              <a href="shop.html#accessories">Accessories <span>→</span></a>
+            </div>
+          </li>
+          <li><a href="locations.html">Locations</a></li>
+          <li><a href="history.html">History</a></li>
+          <li><a href="updates.html">Updates</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="cart.html">Cart</a></li>
+        </ul>
+      </nav>
+
+      <div class="spacer"></div>
+      <div class="actions">
+        <a class="btn ghost" href="login-user.html">User Login</a>
+        <a class="btn ghost" href="login-admin.html">Admin Login</a>
+        <a class="btn" href="login-seller.html">Seller Login</a>
+      </div>
+
+      <label class="burger" for="navToggle"><input id="navToggle" type="checkbox" /><div class="hamburger"><span></span><span></span><span></span></div></label>
+    </div>
+    <div id="mobileNav" class="mobile-drawer">
+      <nav><ul>
+        <li><a href="index.html">Home</a></li><li><a href="shop.html">Shop</a></li>
+        <li><a href="locations.html">Locations</a></li><li><a href="history.html">History</a></li>
+        <li><a href="updates.html">Updates</a></li><li><a href="about.html">About</a></li>
+        <li><a href="cart.html">Cart</a></li>
+      </ul></nav>
+      <div style="height:10px"></div>
+      <nav><ul>
+        <li><a href="login-user.html">User Login</a></li>
+        <li><a href="login-admin.html">Admin Login</a></li>
+        <li><a href="login-seller.html">Seller Login</a></li>
+      </ul></nav>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="main auth-wrap">
+    <section class="card auth-card" aria-labelledby="sellerLoginTitle">
+      <header class="auth-header">
+        <div>
+          <h1 id="sellerLoginTitle" class="auth-title">Seller Login</h1>
+          <p class="auth-sub">Manage listings, orders, delivery guides, and payouts.</p>
+        </div>
+        <a class="btn ghost" href="index.html">← Back</a>
+      </header>
+
+      <form class="form-grid" action="dashboard-seller.html" method="get" novalidate>
+        <div>
+          <label for="sellerId">Email or Seller ID</label>
+          <input class="input" id="sellerId" name="sellerId" type="text" placeholder="seller@tacklenear.me" required>
+        </div>
+        <div>
+          <label for="sellerPass">Password</label>
+          <input class="input" id="sellerPass" name="sellerPass" type="password" placeholder="••••••••" required>
+        </div>
+
+        <div class="action-row">
+          <button class="btn w-100" type="submit">Sign in</button>
+        </div>
+        <div class="alt-links">
+          <a href="#">Forgot password?</a>
+          <a href="#">Register as seller</a>
+          <a href="index.html">Back to site</a>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container foot">
+      <small>© <span id="year"></span> TackleNearMe — All rights reserved.</small>
+      <div class="links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Support</a><a href="#">Contact</a></div>
+    </div>
+    <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  </footer>
+</body>
+</html>
+``
