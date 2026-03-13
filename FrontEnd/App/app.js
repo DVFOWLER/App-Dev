@@ -35,6 +35,13 @@ function adminGuard(){
   }
 }
 
+function sellerGuard(){
+  if(localStorage.getItem('role') !== 'seller'){ 
+    alert('Access Denied: Seller Portal Only');
+    location.href = 'login-seller.html'; 
+  }
+}
+
 // 1. Add to the Auth Section
 function sellerLogin(){
   const user = $('#seller-username')?.value?.trim();
@@ -60,16 +67,36 @@ function sellerGuard(){
   if(role !== 'seller'){ location.href = 'login-seller.html'; }
 }
 
-document.addEventListener('DOMContentLoaded', ()=>{
+document.addEventListener('DOMContentLoaded', () => {
+    const path = location.pathname;
 
-  if(location.pathname.endsWith('seller-dashboard.html')){
-    sellerGuard();
-    if($('#seller-name-display')) $('#seller-name-display').textContent = localStorage.getItem('username');
-    renderAdminProducts();
+    // 1. Identify where NOT to put the background
+    const isDashboard = path.includes('admin-') || path.includes('seller-dashboard');
 
-    const myProds = getProducts().length;
-    if($('#seller-stat-products')) $('#seller-stat-products').textContent = String(myProds);
-  }
+    // 2. Apply background class if it's NOT a dashboard
+    if (!isDashboard) {
+        document.body.classList.add('customer-site');
+        
+        // If it's a login page, we can also add the specific login class
+        if (path.includes('login')) {
+            document.body.classList.add('login-page');
+        }
+    }
+
+    // 3. Routing Logic
+    if (path.includes('seller-dashboard.html')) {
+        sellerGuard();
+        renderSellerDashboard();
+    } else if (path.includes('admin-')) {
+        adminGuard();
+        renderAdminStats();
+        // ... rest of your admin renders
+    } else {
+        // Customer side renders
+        if (document.querySelector('#featuredProducts')) renderFeaturedProducts();
+        if (document.querySelector('#shopProducts')) renderShopProducts();
+        updateCartBadge();
+    }
 });
 
 function userLogin(){
@@ -90,19 +117,29 @@ function showGreeting(){
   const greeting = $('#user-greeting');
   const logoutBtn = $('.logout-btn');
   const authLinks = $('#auth-links');
+  const display = $('#username-display');
 
   if(name){
-    if($('#username-display')) $('#username-display').textContent = role==='admin' ? 'Admin' : name;
+    if(display) {
+      // Logic: If Admin/Seller, show capitalized Role. Otherwise, show name.
+      if (role === 'admin') {
+        display.textContent = 'Admin';
+      } else if (role === 'seller') {
+        display.textContent = 'Seller';
+      } else {
+        display.textContent = name;
+      }
+    }
+    
     if(greeting) greeting.style.display = 'inline';
     if(logoutBtn) logoutBtn.style.display = 'inline-flex';
     authLinks?.querySelectorAll('a[data-login]')?.forEach(a => a.style.display = 'none');
-  }else{
+  } else {
     if(greeting) greeting.style.display = 'none';
     if(logoutBtn) logoutBtn.style.display = 'none';
     authLinks?.querySelectorAll('a[data-login]')?.forEach(a => a.style.display = 'inline-flex');
   }
 }
-
 function seedProducts(){
   if(!localStorage.getItem('products')){
     const now = Date.now();
@@ -574,18 +611,32 @@ function deleteUser(index) {
 // --- SELLER DASHBOARD LOGIC ---
 
 function sellerAddProduct() {
-    const seller = localStorage.getItem('username');
-    const name = prompt('Product Name?'); if(!name) return;
-    const price = Number(prompt('Price?')) || 0;
-    const stock = Number(prompt('Stock?')) || 0;
-    const img = prompt('Image URL?');
+    const seller = localStorage.getItem('username'); // Matches your render logic
+    
+    const name = prompt("Enter Product Name:");
+    if (!name) return;
+    
+    const price = parseFloat(prompt("Enter Price (₱):") || "0");
+    const stock = parseInt(prompt("Enter Stock Quantity:") || "0");
+    const category = prompt("Enter Category (e.g., Rods, Reels, Lures):");
+    const img = prompt("Enter Image URL:", "https://via.placeholder.com/150");
 
-    const list = getProducts();
-    list.push({
-        id: name.toLowerCase().replace(/\s+/g, '-') + '-' + Date.now().toString().slice(-4),
-        name, price, stock, owner: seller, image_url: img, createdAt: Date.now()
-    });
-    setProducts(list);
+    const newProduct = {
+        id: 'P-' + Date.now(), // Unique ID for the delete function
+        name: name,
+        price: price,
+        stock: stock,
+        category: category,
+        img: img,
+        owner: seller // Critical: matches your filter p.owner === seller
+    };
+
+    // Save to your existing product storage
+    const allProds = getProducts();
+    allProds.push(newProduct);
+    localStorage.setItem('products', JSON.stringify(allProds));
+    
+    // Refresh the table immediately
     renderSellerDashboard();
 }
 
@@ -630,11 +681,19 @@ function renderSellerDashboard() {
     }
 }
 
-function deleteMyProduct(id) {
-    if(!confirm('Delete listing?')) return;
-    const newList = getProducts().filter(p => p.id !== id);
-    setProducts(newList);
-    renderSellerDashboard();
+function deleteMyProduct(productId) {
+    if (confirm("Are you sure you want to delete this listing?")) {
+        let allProds = getProducts();
+        
+        // Filter out the specific product
+        allProds = allProds.filter(p => p.id !== productId);
+        
+        // Save back to localStorage
+        localStorage.setItem('products', JSON.stringify(allProds));
+        
+        // Refresh the dashboard
+        renderSellerDashboard();
+    }
 }
 
 // Update the DOMContentLoaded to route correctly
