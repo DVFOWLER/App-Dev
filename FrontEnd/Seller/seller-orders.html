@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Seller Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+
+</head>
+</head>
+<body class="seller-page">
+    <header class="main-header">
+        <div class="logo">🎣 <span>SELLER PORTAL</span></div>
+        <nav class="nav-links">
+            <a href="seller-dashboard.html" class="active">📦 Inventory Listing</a>
+            <a href="seller-orders.html">🚚 Incoming Orders</a>
+            <a href="index.html">🌐 View Shop</a>
+        </nav>
+        <div class="auth-right">
+            <span class="user-info">Hello, <span id="seller-name-display">Seller</span></span>
+            <button class="logout-btn" style="display:inline-block" onclick="logout()">Logout</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin: 30px 0;">
+            <div>
+                <h1>Inventory Listing</h1>
+                <p style="color:#6b7280;">Manage your stock levels and product details.</p>
+            </div>
+            <button id="btn-add-product" class="btn" style="background:#8b5cf6; padding: 12px 20px; font-weight: bold;">
+                + Add New Gear
+            </button>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+            <div class="stat green" style="width: fit-content; padding: 10px 30px;">
+                <h3>Total Active Items: <span id="seller-stat-products">0</span></h3>
+            </div>
+        </div>
+
+        <div class="card">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product Name</th>
+                        <th>Price</th>
+                        <th>In Stock</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="products-tbody">
+                    </tbody>
+            </table>
+        </div>
+    </main>
+
+    <footer>
+        <p class="copyright">© 2026 TackleNearMe - Seller Workspace</p>
+    </footer>
+</body>
+</html>

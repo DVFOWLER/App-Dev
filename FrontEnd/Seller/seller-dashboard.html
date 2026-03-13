@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"><title>Seller Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+<body> <header class="main-header">
+    <div class="logo">🎣 Seller Dashboard</div>
+    <nav><button class="btn btn-red" onclick="logout()">Logout</button></nav>
+</header>
+<main class="container">
+    <div class="stat-grid">
+        <div class="stat-box"><h3>My Products</h3><p id="seller-stat-products">0</p></div>
+        <div class="stat-box" style="background:var(--primary2)"><h3>New Orders</h3><p id="seller-stat-orders">0</p></div>
+    </div>
+    <section class="dashboard-card">
+        <div style="display:flex; justify-content:space-between; margin-bottom:1rem;">
+            <h2>My Listings</h2>
+            <button class="btn btn-green" onclick="sellerAddProduct()">+ New Listing</button>
+        </div>
+        <table>
+            <thead><tr><th>Product</th><th>Price</th><th>Stock</th><th>Action</th></tr></thead>
+            <tbody id="seller-products-tbody"></tbody>
+        </table>
+    </section>
+    <section class="dashboard-card">
+        <h2>Incoming Orders</h2>
+        <table>
+            <thead><tr><th>Order ID</th><th>Customer</th><th>Items</th><th>Action</th></tr></thead>
+            <tbody id="seller-orders-tbody"></tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>
