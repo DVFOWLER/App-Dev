@@ -1,31 +1,161 @@
 /* =========================
-   TackleNearMe - Global Styles (Frontend Only)
-   Sticky footer & responsive UI
+   TackleNearMe - Modern CSS
    ========================= */
-:root{
-  --primary:#1266f1;
-  --primary2:#00b894;
-  --dark:#0f172a;
-  --muted:#6b7280;
-  --bg:#f7f9fc;
-  --card:#ffffff;
-  --accent:#ffb703;
+:root {
+  --primary: #1266f1;
+  --primary2: #00b894;
+  --dark: #0f172a;
+  --muted: #6b7280;
+  --bg: #f8fafc;
+  --card: #ffffff;
+  --accent: #ffb703;
   --gradient: linear-gradient(90deg, #0ea5e9, #6366f1, #8b5cf6);
 }
 
-/* Base layout */
-html, body { height: 100%; }
-body{
-  margin:0;
-  padding:0;
-  font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Inter,Arial;
-  color:#111827;
-  background:var(--bg);
-  display:flex;
-  flex-direction:column;
-  min-height:100vh;
+/* 1. STICKY FOOTER & BASE LAYOUT */
+html, body {
+  height: 100%;
+  margin: 0;
 }
-main{ flex:1 0 auto; display:block; }
+/* Base layout */
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--bg);
+  color: var(--dark);
+  min-height: 100vh;
+}
+
+/* 1. Body Background - Keeping your exact setup */
+body.customer-site {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+              url('https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/615805840_1189610106635802_8610897223988077648_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeGa8Xf3WO0myye3N9l6bgVyuM5dcnYptW64zl1ydim1bnGCvkv3oa1UQ2b2EqtseKvqMJ1af4tjZOM3Lnac4Rf2&_nc_ohc=fR9GQzGdV8gQ7kNvwFTQJlO&_nc_oc=Adli8-TGEf1GC7u6B-D2aICVK2DxtYAcmKIy1CTCcsOs_E0v9dp9P6DyCNiskEtWTt8&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=oTLk2WswHSIy2MN9QbJB2w&_nc_ss=8&oh=00_AfxUCr2O1Xu4tnJmn943TXTuPIDp2-6idQBBCPvAnb_vHQ&oe=69B81B60');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* 2. ADJUSTED: Stronger Dark Transparent Glass Effect */
+body.customer-site section,
+.container,
+#shopProducts, 
+#featuredProducts, 
+.product-container,
+.branch-list {
+  background: rgba(0, 0, 0, 0.7) !important; /* Darker black tint for visibility */
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  padding: 40px 20px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* 3. Text Visibility Fixes */
+h1, h2, .container h2, .products h2, .filter-bar label {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* Stronger shadow to help titles stand out */
+}
+
+/* 4. White Cards for Contrast */
+.card {
+  background: #ffffff !important;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+}
+
+/* Keep card text black */
+.card h3, .card p, .card span {
+  color: #111111 !important;
+}
+
+/* Apply background to Customer pages AND Login pages */
+body.customer-site,
+body.login-page {
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+              url('https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/615805840_1189610106635802_8610897223988077648_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeGa8Xf3WO0myye3N9l6bgVyuM5dcnYptW64zl1ydim1bnGCvkv3oa1UQ2b2EqtseKvqMJ1af4tjZOM3Lnac4Rf2&_nc_ohc=fR9GQzGdV8gQ7kNvwFTQJlO&_nc_oc=Adli8-TGEf1GC7u6B-D2aICVK2DxtYAcmKIy1CTCcsOs_E0v9dp9P6DyCNiskEtWTt8&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=oTLk2WswHSIy2MN9QbJB2w&_nc_ss=8&oh=00_AfxUCr2O1Xu4tnJmn943TXTuPIDp2-6idQBBCPvAnb_vHQ&oe=69B81B60');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+}
+
+/* Ensure the glass effect works on login containers too */
+body.login-page .login-wrapper {
+  background: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+
+
+/* Layout Elements */
+.main-header {
+  background: var(--gradient);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+}
+
+/* Updates Specific Styling */
+.container h2 {
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid var(--primary2);
+    display: inline-block;
+}
+
+#updates-page section h3 {
+    color: var(--primary);
+    margin-top: 1rem;
+}
+
+/* Dashboard UI */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-bottom: 2rem; }
+.stat-box { background: var(--primary); color: white; padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.dashboard-card { background: white; border-radius: 12px; padding: 1.5rem; color: var(--dark); box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2rem; }
+
+/* Tables */
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 1rem; text-align: left; border-bottom: 1px solid #edf2f7; }
+th { background: #f7fafc; color: var(--muted); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.05em; }
+
+/* Buttons */
+.btn { border: none; padding: 0.6rem 1.2rem; border-radius: 8px; cursor: pointer; font-weight: 600; transition: 0.3s; }
+.btn-red { background: #ef4444; color: white; }
+.btn-green { background: #10b981; color: white; }
+
+/* Header & Shared Elements */
+.main-header, footer {
+    background-image: var(--gradient);
+    color: #fff;
+    padding: 1rem;
+}
+
+.nav-links a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }
+
+/* Dashboard Tables */
+.dashboard-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+    color: var(--dark);
+}
+
+table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e5e7eb; }
+th { background: #f1f5f9; }
+
+/* Admin/Seller Stat Widgets */
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 2rem; }
+.stat-box { background: var(--primary); color: white; padding: 1.5rem; border-radius: 10px; }
+
+.nav-links a { color: #fff; text-decoration: none; margin-right: 15px; font-weight: bold; }
 footer{ margin-top:auto; }
 
 /* Header */
@@ -110,8 +240,8 @@ footer{ margin-top:auto; }
     radial-gradient(1200px 400px at -10% -20%, #e0f2fe 0, transparent 60%),
     radial-gradient(1000px 300px at 120% 10%, #dcfce7 0, transparent 55%);
 }
-.hero-text h1{ font-size:42px; margin:0 0 12px; color:#0f172a; }
-.hero-text p{ font-size:18px; color:#334155; margin:0 0 20px; }
+.hero-text h1{ font-size:42px; margin:0 0 12px; color:#ffffff; }
+.hero-text p{ font-size:18px; color:#ffffff; margin:0 0 20px; }
 .hero .btn{
   background:linear-gradient(90deg, #2563eb, #7c3aed); color:#fff; border:none;
   padding:12px 18px; border-radius:12px; cursor:pointer; font-weight:900; letter-spacing:.3px;
@@ -168,9 +298,9 @@ footer{ margin-top:auto; }
   display:grid; grid-template-columns:1fr 1fr; gap:20px; align-items:center; margin:30px 22px; padding:18px;
   background:var(--card); border-radius:16px; box-shadow:0 8px 22px rgba(0,0,0,.06);
 }
-.feature.green{ background:linear-gradient(180deg,#f0fdf4,#ffffff) }
+.feature.black{ background:linear-gradient(180deg,#f0fdf4,#eeeeee) }
 .feature .text h2{ margin:6px 0 8px }
-.feature .text p, .feature .text li{ color:#374151 }
+.feature .text p, .feature .text li{ color:#ffffff }
 .feature img{ width:100%; height:320px; max-height:360px; border-radius:14px; object-fit:cover } /* visible & bigger */
 @media (max-width:920px){
   .feature{ grid-template-columns:1fr; }
