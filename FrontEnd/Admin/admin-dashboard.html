@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="app.js"></script>
+</head>
+<body class="admin-page">
+<header class="main-header">
+    <div class="logo">🛡️ Admin Center</div>
+    <nav style="display: flex; align-items: center; gap: 15px;">
+        <span id="username-display" style="font-weight: bold; color: white; border-right: 1px solid rgba(255,255,255,0.3); padding-right: 15px;"></span>
+        <button class="btn btn-red" onclick="logout()">Logout</button>
+    </nav>
+</header>
+<main class="container">
+    <div class="stat-grid">
+        <div class="stat-box" style="background:#1e293b"><h3>Total Users</h3><p id="stat-users">0</p></div>
+        <div class="stat-box" style="background:#0f766e"><h3>Total Revenue</h3><p id="stat-revenue">₱0</p></div>
+    </div>
+    <section class="dashboard-card">
+        <h2>Manage Users</h2>
+        <table>
+            <thead><tr><th>User</th><th>Email</th><th>Role</th><th>Action</th></tr></thead>
+            <tbody id="users-tbody"></tbody>
+        </table>
+    </section>
+    <section class="dashboard-card">
+        <h2>Global Transactions</h2>
+        <table>
+            <thead><tr><th>ID</th><th>Customer</th><th>Amount</th><th>Status</th></tr></thead>
+            <tbody id="recent-orders"></tbody>
+        </table>
+    </section>
+</main>
+</body>
+</html>
