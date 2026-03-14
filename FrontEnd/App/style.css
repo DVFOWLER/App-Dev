@@ -20,54 +20,113 @@ html, body {
 /* Base layout */
 
 body {
-  margin: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   font-family: 'Inter', sans-serif;
   background-color: var(--bg);
   color: var(--dark);
-  min-height: 100vh;
 }
 
-/* 1. Body Background - Keeping your exact setup */
-body.customer-site {
+/* This pushes the footer to the bottom */
+main {
+  flex: 1;
+}
+
+/* 2. BACKGROUND & GLASS EFFECTS */
+body.customer-site,
+body.login-page,
+#cart-page {
   background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
               url('https://scontent.fcgy3-2.fna.fbcdn.net/v/t39.30808-6/615805840_1189610106635802_8610897223988077648_n.jpg?stp=cp6_dst-jpg_tt6&_nc_cat=110&ccb=1-7&_nc_sid=2a1932&_nc_eui2=AeGa8Xf3WO0myye3N9l6bgVyuM5dcnYptW64zl1ydim1bnGCvkv3oa1UQ2b2EqtseKvqMJ1af4tjZOM3Lnac4Rf2&_nc_ohc=fR9GQzGdV8gQ7kNvwFTQJlO&_nc_oc=Adli8-TGEf1GC7u6B-D2aICVK2DxtYAcmKIy1CTCcsOs_E0v9dp9P6DyCNiskEtWTt8&_nc_zt=23&_nc_ht=scontent.fcgy3-2.fna&_nc_gid=oTLk2WswHSIy2MN9QbJB2w&_nc_ss=8&oh=00_AfxUCr2O1Xu4tnJmn943TXTuPIDp2-6idQBBCPvAnb_vHQ&oe=69B81B60');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  color: white;
 }
 
-/* 2. ADJUSTED: Stronger Dark Transparent Glass Effect */
+/* The Glass Container Effect */
 body.customer-site section,
 .container,
 #shopProducts, 
 #featuredProducts, 
 .product-container,
-.branch-list {
-  background: rgba(0, 0, 0, 0.7) !important; /* Darker black tint for visibility */
-  backdrop-filter: blur(10px) !important;
+.branch-list,
+.login-wrapper {
+  background: rgba(0, 0, 0, 0.5) !important; /* Semi-transparent */
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
   border: 1px solid rgba(255, 255, 255, 0.1) !important;
   padding: 40px 20px;
   border-radius: 20px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
-/* 3. Text Visibility Fixes */
+/* 3. TEXT VISIBILITY */
 h1, h2, .container h2, .products h2, .filter-bar label {
   color: #ffffff !important;
-  text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* Stronger shadow to help titles stand out */
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.8);
 }
 
-/* 4. White Cards for Contrast */
+/* 4. CARDS (FOR PRODUCTS) */
 .card {
   background: #ffffff !important;
-  border-radius: 15px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.4);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.2);
+  transition: .25s transform;
+  position: relative;
 }
 
-/* Keep card text black */
-.card h3, .card p, .card span {
-  color: #111111 !important;
+.card:hover { transform: translateY(-4px); }
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  background: #f3f4f6;
 }
+
+.card h3, .card p, .card span {
+  color: #111111 !important; /* Keep text dark on white cards */
+  padding: 0 12px;
+}
+
+/* 5. HEADER */
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px;
+  background-image: var(--gradient);
+  background-size: 200% 200%;
+  animation: headerGradient 8s ease infinite;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+@keyframes headerGradient { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }
+
+.logo { font-weight: 900; color: #fff; }
+.logo span { color: #fffbeb; }
+
+.nav-links { display: flex; gap: 10px; align-items: center; }
+.nav-links a {
+  text-decoration: none;
+  color: #f8fafc;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 10px;
+  transition: .18s ease;
+}
+
+.nav-links a:hover { background: rgba(255,255,255,.14); }
 
 /* Apply background to Customer pages AND Login pages */
 body.customer-site,
