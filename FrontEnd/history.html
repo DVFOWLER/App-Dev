@@ -49,25 +49,29 @@
     <a href="about.html">About</a>
     <a id="nav-cart" class="cart-link" href="delivery.html">Cart <span id="cart-badge" class="cart-badge" hidden>0</span></a>
   </nav>
-  <div class="auth-right" id="auth-links">
-    <span class="user-info" id="user-greeting" style="display:none;">Welcome, <span id="username-display"></span>!</span>
-    <a data-login href="login-user.html" class="btn-login">User Login</a>
-    <a data-login href="login-admin.html" class="btn-login">Admin Login</a>
-    <button class="logout-btn" onclick="logout()">Logout</button>
-  </div>
+
+  <div class="auth-right" id="auth-links" style="display:flex; align-items:center; gap:10px;">
+      <span class="user-info" id="user-greeting" style="display:none;">Welcome, <span id="username-display"></span>!</span>
+      <a data-login class="btn btn-outline" href="login-user.html" style="background:var(--primary2)">User Login</a>
+      <a href="login-seller.html" class="btn-login" style="background:var(--primary2);" data-login>Seller Login</a>
+      <a data-login class="btn btn-outline" href="login-admin.html" style="background:var(--primary2)">Admin Login</a>
+      <button class="logout-btn" onclick="logout()">Logout</button>
+    </div>
 </header>
 
-<div class="container">
-  <div class="products">
-    <div class="product-container">
-      <div class="card">
-        <img src="https://whiteknucklerbrand.com/cdn/shop/articles/whiteknuckler-history-of-the-fishing-rod-lead-image.jpg?v=1678825097&width=1500""
-        <h3>Our Journey</h3>
-        <p>Started in 2024, TackleNearMe began supplying reliable fishing gear to local anglers, growing into a nationwide online-first shop.</p>
-      </div>
+<main> <div class="container">
+    <div class="products">
+        <div class="product-container">
+          <div class="card">
+            <img src="https://whiteknucklerbrand.com/cdn/shop/articles/whiteknuckler-history-of-the-fishing-rod-lead-image.jpg?v=1678825097&width=1500" alt="History of fishing">
+            <div style="padding: 20px;"> <h3>Our Journey</h3>
+                <p>Started in 2024, TackleNearMe began supplying reliable fishing gear to local anglers, growing into a nationwide online-first shop.</p>
+            </div>
+          </div>
+        </div>
     </div>
   </div>
-</div>
+</main>
 
 <footer>
   <div class="footer-container">
