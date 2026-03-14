@@ -12,7 +12,6 @@
   <div class="logo">🎣 <span>TackleNearMe</span></div>
   <nav class="nav-links" aria-label="Primary">
     <a href="index.html">Home</a>
-
     <div class="dropdown">
       <a href="shop.html" id="shopDropdownToggle" class="dropdown-toggle" aria-expanded="false">Shop ▾</a>
       <div class="dropdown-menu" id="shopDropdownMenu" role="menu" aria-label="Shop categories">
@@ -48,7 +47,6 @@
         </div>
       </div>
     </div>
-
     <a href="locations.html">Locations</a>
     <a href="history.html">History</a>
     <a href="updates.html">Updates</a>
@@ -63,15 +61,18 @@
   </div>
 </header>
 
-<div class="container">
-  <!-- Optional: Pending Orders Chip (you wanted it visible in user pages) -->
-  <div id="pendingOrdersChip" class="badge info" style="display:inline-block; margin:10px 0;">Pending Orders: <span data-count>0</span></div>
+<main>
+  <div class="container">
+    <div id="pendingOrdersChip" class="badge info" style="display:inline-block; margin:10px 0;">
+        Pending Orders: <span data-count>0</span>
+    </div>
 
-  <h2>Your Cart</h2>
-  <div id="cartItems" class="products"></div>
-  <p id="total">Total: ₱0</p>
-  <button class="btn" onclick="checkout()">Checkout</button>
-</div>
+    <h2>Your Cart</h2>
+    <div id="cartItems" class="products"></div>
+    <p id="total">Total: ₱0</p>
+    <button class="btn" onclick="checkout()">Checkout</button>
+  </div>
+</main>
 
 <footer>
   <div class="footer-container">
@@ -107,7 +108,6 @@
   <p class="copyright">© 2026 TackleNearMe</p>
 </footer>
 
-<!-- Pending orders count for this page -->
 <script>
 (function(){
   const chip = document.getElementById('pendingOrdersChip');
