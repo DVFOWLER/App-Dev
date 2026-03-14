@@ -1,4 +1,4 @@
-const $  = (sel, root=document) => root.querySelector(sel);
+cconst $  = (sel, root=document) => root.querySelector(sel);
 const $$ = (sel, root=document) => [...root.querySelectorAll(sel)];
 const fmtCurrency = (n) => `₱${Number(n).toLocaleString('en-PH')}`;
 
